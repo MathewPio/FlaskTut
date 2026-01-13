@@ -1,0 +1,45 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "home",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def home():\n    return render_template(\"tutorial.html\")\n@app.route(\"/about/\")\ndef about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "about",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = Flask(\"Website\")\n@app.route(\"/\")\ndef home():\n    return render_template(\"tutorial.html\")\n@app.route(\"/about/\")\ndef about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "detail": "main",
+        "documentation": {}
+    }
+]
