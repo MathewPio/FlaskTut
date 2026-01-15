@@ -20,7 +20,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def home():\n    return render_template(\"tutorial.html\")\n@app.route(\"/about/\")\ndef about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "peekOfCode": "def home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,\n        \"temperature\": temperature\n    }",
         "detail": "main",
         "documentation": {}
     },
@@ -29,7 +29,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "peekOfCode": "def about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,\n        \"temperature\": temperature\n    }\nif __name__ == \"__main__\":\n    app.run(debug=True)",
         "detail": "main",
         "documentation": {}
     },
@@ -38,7 +38,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = Flask(\"Website\")\n@app.route(\"/\")\ndef home():\n    return render_template(\"tutorial.html\")\n@app.route(\"/about/\")\ndef about():\n    return render_template(\"about.html\")\napp.run(debug=True)",
+        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,",
         "detail": "main",
         "documentation": {}
     }
