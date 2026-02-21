@@ -16,11 +16,20 @@
         "documentation": {}
     },
     {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
         "label": "home",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,\n        \"temperature\": temperature\n    }",
+        "peekOfCode": "def home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10\n    return {\n        \"station\": station,",
         "detail": "main",
         "documentation": {}
     },
@@ -29,7 +38,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,\n        \"temperature\": temperature\n    }\nif __name__ == \"__main__\":\n    app.run(debug=True)",
+        "peekOfCode": "def about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10\n    return {\n        \"station\": station,\n        \"date\": date,\n        \"temperature\": temperature\n    }",
         "detail": "main",
         "documentation": {}
     },
@@ -38,7 +47,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    temperature = 23\n    return {\n        \"station\": station,\n        \"date\": date,",
+        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10",
         "detail": "main",
         "documentation": {}
     }
