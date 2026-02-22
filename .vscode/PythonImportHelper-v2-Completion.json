@@ -29,7 +29,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10\n    return {\n        \"station\": station,",
+        "peekOfCode": "def home():\n    return render_template(\"home.html\", data=stations.to_html())\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10\n    return {\n        \"station\": station,",
         "detail": "main",
         "documentation": {}
     },
@@ -47,7 +47,25 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "app = Flask(__name__)\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\")\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10",
+        "peekOfCode": "app = Flask(__name__)\nstations = pd.read_csv(\"data1/stations.txt\", skiprows=17)\nstations = stations[[\"STAID\",\"STANAME                                 \"]]\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\", data=stations.to_html())\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "stations",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "stations = pd.read_csv(\"data1/stations.txt\", skiprows=17)\nstations = stations[[\"STAID\",\"STANAME                                 \"]]\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\", data=stations.to_html())\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "stations",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "stations = stations[[\"STAID\",\"STANAME                                 \"]]\n@app.route(\"/\")\ndef home():\n    return render_template(\"home.html\", data=stations.to_html())\n@app.route(\"/api/v1/<station>/<date>\")\ndef about(station, date):\n    # Argument ot get the station ID\n    filename = \"data1/TG_STAID\" + str(station).zfill(6) + \".txt\"\n    df = pd.read_csv(filename, skiprows=20, parse_dates=[\"    DATE\"])\n    temperature = df.loc[df['    DATE'] == date]['   TG'].squeeze() / 10",
         "detail": "main",
         "documentation": {}
     }
